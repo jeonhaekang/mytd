@@ -1,0 +1,13 @@
+@use '/src/styles/mixins/position';
+@use '/src/styles/constants/colors';
+@use '/src/styles/animation/keyframes/fade.scss';
+
+.toast {
+  @include position.posCenterX(fixed) {
+    bottom: 70px;
+  }
+  background-color: colors.$WHITE;
+  border: 1px solid black;
+  border-radius: 10px;
+  animation: bottomFadeIn 300ms;
+}

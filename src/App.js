@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route, Routes} from "react-router-dom"
 
-function App() {
+import {route} from "./route/route"
+import Dialog from "./view/_common/dialog/Dialog"
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        {route.map(({path, component}, index) => {
+          return <Route key={index} path={path} element={component} />
+        })}
+      </Routes>
+      <Dialog />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

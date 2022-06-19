@@ -1,0 +1,19 @@
+@mixin font($size, $weight) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  @content;
+}
+
+@mixin textEllipsis($height, $line) {
+  display: box;
+  height: $height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  @content;
+}

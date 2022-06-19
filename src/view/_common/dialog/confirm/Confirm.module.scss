@@ -1,0 +1,37 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/sizes';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/animation/keyframes/fade.scss';
+
+.layout {
+  @include position.fixed(0, auto, auto, 0);
+  width: 100vh;
+  height: 100vh;
+
+  .content {
+    @include flexbox.flexColumn;
+    @include position.posCenterX(fixed) {
+      top: 20px;
+    }
+    width: sizes.$ALERT_WIDTH;
+    height: sizes.$ALERT_HEIGHT;
+    padding: 10px;
+    background-color: colors.$WHITE;
+    border: 1px solid colors.$BLACK;
+    border-radius: 10px;
+    animation: topFadeIn 300ms;
+
+    .message {
+      flex: 1;
+    }
+
+    .buttonBox {
+      @include flexbox.flexRow;
+
+      button {
+        flex: 1;
+      }
+    }
+  }
+}

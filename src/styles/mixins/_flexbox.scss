@@ -1,0 +1,25 @@
+$FLEX_MAP: (
+  'around': space-around,
+  'between': space-between,
+  'center': center,
+  'end': flex-end,
+  'start': flex-start,
+  'stretch': stretch,
+);
+
+@mixin flexRow($jc: center, $ai: center, $gap: 0) {
+  display: flex;
+  gap: $gap;
+  align-items: _getFlexValue($ai);
+  justify-content: _getFlexValue($jc);
+  @content;
+}
+
+@mixin flexColumn($jc: center, $ai: center, $gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  align-items: _getFlexValue($ai);
+  justify-content: _getFlexValue($jc);
+  @content;
+}
